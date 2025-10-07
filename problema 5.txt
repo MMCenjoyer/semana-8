@@ -1,0 +1,61 @@
+using System;
+
+namespace Ejercicio5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n;
+            double resultado;
+            Console.Write("Ingresar termino n: ");
+            n = int.Parse(Console.ReadLine());
+            
+            resultado = Series.CalcularSerie(n);
+            Console.WriteLine("El resultado de la serie es: {0}", resultado);
+            Console.ReadKey();
+        }
+    }
+}
+
+
+class2
+
+using System;
+
+namespace Ejemplo5
+{
+    public static class Series
+    {
+        public static double CalcularSerie(int n)
+        {
+            double suma = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                double termino = (double)Potencia(i, i) / Factorial(i);
+                suma += termino;
+            }
+            return suma;
+        }
+
+        private static int Potencia(int baseNum, int exponente)
+        {
+            int resultado = 1;
+            for (int i = 0; i < exponente; i++)
+            {
+                resultado *= baseNum;
+            }
+            return resultado;
+        }
+
+        private static int Factorial(int numero)
+        {
+            int resultado = 1;
+            for (int i = 2; i <= numero; i++)
+            {
+                resultado *= i;
+            }
+            return resultado;
+        }
+    }
+}
