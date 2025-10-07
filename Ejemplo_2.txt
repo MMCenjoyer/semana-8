@@ -12,13 +12,18 @@ namespace Ejemplo2
             Console.Write("Ingrese el exponente: ");
             int exponente = int.Parse(Console.ReadLine());
 
-            int resultado = Potencia(numero, exponente);
+            // Llamamos al método de la clase EJERCICIO2
+            int resultado = EJERCICIO2.Potencia(numero, exponente);
 
             Console.WriteLine($"{numero}^{exponente} = {resultado}");
         }
-
-        
-        static int Potencia(int baseNum, int exp)
+    }
+}
+namespace Ejemplo2
+{
+    public class EJERCICIO2
+    {
+        public static int Potencia(int baseNum, int exp)
         {
             int resultado = 1;
 
@@ -31,3 +36,4 @@ namespace Ejemplo2
         }
     }
 }
+
