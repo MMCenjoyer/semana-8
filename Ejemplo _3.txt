@@ -1,0 +1,36 @@
+using System;
+
+namespace EjemploFactorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Ingrese un número entero positivo: ");
+            int numero = int.Parse(Console.ReadLine());
+
+          
+            long resultado = EJERCICIO.Factorial(numero);
+
+            Console.WriteLine($"El factorial de {numero} es: {resultado}");
+        }
+    }
+}
+
+namespace EjemploFactorial
+{
+    public class EJERCICIO
+    {
+        public static long Factorial(int n)
+        {
+            long resultado = 1;
+
+            for (int i = 1; i <= n; i++)
+            {
+                resultado *= i;
+            }
+
+            return resultado;
+        }
+    }
+}
