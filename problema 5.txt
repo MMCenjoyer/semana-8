@@ -59,3 +59,4 @@ namespace Ejemplo5
         }
     }
 }
+// private static solo es para una clase en especifico.
