@@ -1,0 +1,249 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace s8
+{
+    internal class Program
+    {
+        //Ejercicio 2
+        public class EJERCICIO2
+        {
+            public static int Potencia(int baseNum, int exp)
+            {
+                int resultado = 1;
+
+                for (int i = 1; i <= exp; i++)
+                {
+                    resultado *= baseNum;
+                }
+
+                return resultado;
+            }
+        }
+        //Ejercicio 3
+        public class EJERCICIO
+        {
+            public static long Factorial(int n)
+            {
+                long resultadof = 1;
+
+                for (int i = 1; i <= n; i++)
+                {
+                    resultadof *= i;
+                }
+
+                return resultadof;
+            }
+        }
+        //Ejercicio 4
+        public static class Numeros
+        {
+            public static int BuscarMayor(int a, int b, int c)
+            {
+                int mayor;
+                if (a > b && a > c)
+                {
+                    mayor = a;
+                }
+                else
+                {
+                    if (b > c)
+                    {
+                        mayor = b;
+                    }
+                    else
+                    {
+                        mayor = c;
+                    }
+                }
+                return mayor;
+            }
+
+            public static int BuscarMenor(int a, int b, int c)
+            {
+                int menor;
+                if (a <= b && a <= c)
+                {
+                    menor = a;
+                }
+                else
+                {
+                    if (b < c)
+                    {
+                        menor = b;
+                    }
+                    else
+                    {
+                        menor = c;
+                    }
+                }
+                return menor;
+            }
+
+            public static int BuscarIntermedio(int a, int b, int c, int mayor, int menor)
+            {
+                int inter;
+                inter = (a + b + c) - (mayor + menor);
+                return inter;
+            }
+        }
+
+        //Ejercicio 5
+        public static class Series
+        {
+            public static double CalcularSerie(int n34)
+            {
+                double sumaf = 0;
+                for (int i = 1; i <= n34; i++)
+                {
+                    double termino = (double)Potencia(i, i) / Factorial(i);
+                    sumaf += termino;
+                }
+                return sumaf;
+            }
+
+            private static int Potencia(int baseNum, int exponente)
+            {
+                int resultadof1 = 1;
+                for (int i = 0; i < exponente; i++)
+                {
+                    resultadof1 *= baseNum;
+                }
+                return resultadof1;
+            }
+
+            private static int Factorial(int numero)
+            {
+                int resultadof1 = 1;
+                for (int i = 2; i <= numero; i++)
+                {
+                    resultadof1 *= i;
+                }
+                return resultadof1;
+            }
+        }
+
+        //Ejercicio 6
+        int numero1;
+        int numero2;
+        int resultado;
+
+        void Ingresar()
+        {
+            numero1 = LeerNumero("Ingresar N1: ");
+            numero2 = LeerNumero("Ingresar N2: ");
+        }
+
+        int LeerNumero(string mensaje)
+        {
+            int num;
+            do
+            {
+                Console.Write(mensaje);
+                if (int.TryParse(Console.ReadLine(), out num) && num >= 0)
+                {
+                    return num;
+                }
+                Console.WriteLine("Por favor ingrese un número natural válido.");
+            } while (true);
+        }
+
+        void Sumar()
+        {
+            resultado = numero1 + numero2;
+        }
+
+        void Imprimir()
+        {
+            Console.WriteLine("La suma es: " + resultado);
+        }
+
+        //Ejercicio 7
+        static void incremento1(int n)
+        {
+            n = n + 10;
+            Console.WriteLine("Dentro de incremento1 (por valor): n = " + n);
+        }
+        static void incremento2(ref int n)
+        {
+            n = n + 10;
+            Console.WriteLine("Dentro de incremento2 (por referencia): n = " + n);
+        }
+        static void Main(string[] args)
+        {
+            //Ejercicio 2
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ejercicio 2");
+            Console.Write("Ingrese un número: ");
+            int numero = int.Parse(Console.ReadLine());
+            Console.Write("Ingrese el exponente: ");
+            int exponente = int.Parse(Console.ReadLine());
+            int resultado = EJERCICIO2.Potencia(numero, exponente);
+            Console.WriteLine($"{numero}^{exponente} = {resultado}");
+
+            //Ejercicio 3
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ejercicio 3");
+            Console.Write("Ingrese un número entero positivo: ");
+            int numerof = int.Parse(Console.ReadLine());
+            long resultadof = EJERCICIO.Factorial(numerof);
+            Console.WriteLine($"El factorial de {numerof} es: {resultadof}");
+
+            //Ejercicio 4
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ejercicio 4");
+            int a, b, c, mayor, menor, inter;
+            Console.Write("Ingresar numero 1: ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Ingresar numero 2: ");
+            b = int.Parse(Console.ReadLine());
+            Console.Write("Ingresar numero 3: ");
+            c = int.Parse(Console.ReadLine());
+            mayor = Numeros.BuscarMayor(a, b, c);
+            menor = Numeros.BuscarMenor(a, b, c);
+            inter = Numeros.BuscarIntermedio(a, b, c, mayor, menor);
+            Console.WriteLine("El mayor es = {0}", mayor);
+            Console.WriteLine("El menor es = {0}", menor);
+            Console.WriteLine("El intermedio es = {0}", inter);
+
+            //Ejercicio 5
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ejercicio 5");
+            int n34;
+            double resultadof1;
+            Console.Write("Ingresar termino n: ");
+            n34 = int.Parse(Console.ReadLine());
+            resultadof1 = Series.CalcularSerie(n34);
+            Console.WriteLine("El resultado de la serie es: {0}", resultadof1);
+
+            //Ejercicio 6
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Ejercicio 6");
+            Program p = new Program();
+            p.Ingresar();
+            p.Sumar();
+            p.Imprimir();
+
+            //Ejercicio 7
+            int a1 = 10;
+            int b1 = 10;
+            Console.WriteLine(" ");
+            Console.WriteLine("Ejercicio 7");
+            Console.WriteLine($"Antes de llamar a incremento1: a1 = {a1}");
+            incremento1(a1);
+            Console.WriteLine($"Después de llamar a incremento1: a1 = {a1}");
+            Console.WriteLine();
+            Console.WriteLine($"Antes de llamar a incremento2: b1 = {b1}");
+            incremento2(ref b1);
+            Console.WriteLine($"Después de llamar a incremento2: b1 = {b1}");
+        }
+    }
+}
