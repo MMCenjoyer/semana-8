@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace s8
+{
+    internal class Program
+    {
+        static void incremento1(int n)
+        {
+            n = n + 10;
+            Console.WriteLine("Dentro de incremento1 (por valor): n = " + n);
+        }
+        static void incremento2(ref int n)
+        {
+            n = n + 10;
+            Console.WriteLine("Dentro de incremento2 (por referencia): n = " + n);
+        }
+        static void Main(string[] args)
+        {
+            int a = 10;
+            int b = 10;
+
+            Console.WriteLine($"Antes de llamar a incremento1: a = {a}");
+            incremento1(a);
+            Console.WriteLine($"Después de llamar a incremento1: a = {a}");
+
+            Console.WriteLine();
+
+            Console.WriteLine($"Antes de llamar a incremento2: b = {b}");
+            incremento2(ref b);
+            Console.WriteLine($"Después de llamar a incremento2: b = {b}");
+        }
+    }
+}
