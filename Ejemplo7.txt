@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    int numero1;
+    int numero2;
+    int resultado;
+
+    void Ingresar()
+    {
+        numero1 = LeerNumero("Ingresar N1: ");
+        numero2 = LeerNumero("Ingresar N2: ");
+    }
+
+    int LeerNumero(string mensaje)
+    {
+        int num;
+        do
+        {
+            Console.Write(mensaje);
+            if (int.TryParse(Console.ReadLine(), out num) && num >= 0)
+            {
+                return num;
+            }
+            Console.WriteLine("Por favor ingrese un número natural válido.");
+        } while (true);
+    }
+
+    void Sumar()
+    {
+        resultado = numero1 + numero2;
+    }
+
+    void Imprimir()
+    {
+        Console.WriteLine("La suma es: " + resultado);
+    }
+
+    static void Main(string[] args)
+    {
+        Program p = new Program();
+        p.Ingresar();
+        p.Sumar();
+        p.Imprimir();
+    }
+}
+
+
